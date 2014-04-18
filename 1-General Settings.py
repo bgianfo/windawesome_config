@@ -17,10 +17,9 @@ def onLayoutLabelClick():
 
 config.WindowBorderWidth = 0
 config.WindowPaddedBorderWidth = 0
+config.CheckForUpdates = False
 
-config.CheckForUpdates = True
-
-workspacesWidgetForegroundColors = [Color.LightSeaGreen for i in range(0, 5)]
+workspacesWidgetForegroundColors = [Color.LightGray for i in range(0, 5)]
 workspacesWidgetBackgroundColors = [Color.Black for i in range(0, 5)]
 
 config.Bars = Enumerable.ToArray[Bar]([
@@ -31,12 +30,12 @@ config.Bars = Enumerable.ToArray[Bar]([
 				normalBackgroundColor = workspacesWidgetBackgroundColors,
 				highlightedForegroundColor = Color.DarkOrange,
 				highlightedBackgroundColor = Color.Black,
-				highlightedInactiveForegroundColor = Color.LightSeaGreen,
+				highlightedInactiveForegroundColor = Color.LightGray,
 				highlightedInactiveBackgroundColor = Color.Black,
 				flashingForegroundColor = Color.Black
 			),
 			LayoutWidget(
-				foregroundColor = Color.Gold,
+				foregroundColor = Color.Gray,
 				backgroundColor = Color.Black,
 				onClick = onLayoutLabelClick
 			)
@@ -45,15 +44,15 @@ config.Bars = Enumerable.ToArray[Bar]([
 		[
 			#SystemTrayWidget(True),
 			CpuMonitorWidget(
-				foregroundColor = Color.LightSeaGreen,
+				foregroundColor = Color.LightGray,
 				backgroundColor = Color.Black,
 			),
 			RamMonitorWidget(
-				foregroundColor = Color.LightSeaGreen,
+				foregroundColor = Color.LightGray,
 				backgroundColor = Color.Black,
 			),
 			LaptopBatteryMonitorWidget(
-				foregroundColor = Color.LightSeaGreen,
+				foregroundColor = Color.LightGray,
 				backgroundColor = Color.Black,
 			),
 		],
@@ -73,11 +72,11 @@ config.Bars = Enumerable.ToArray[Bar]([
 ])
 
 config.Workspaces = Enumerable.ToArray[Workspace]([
-	Workspace(windawesome.monitors[0], FloatingLayout(), [config.Bars[0]], name = 'main'),
-	Workspace(windawesome.monitors[0], FullScreenLayout(), [config.Bars[0]], name = 'web'),
-	Workspace(windawesome.monitors[0], TileLayout(), [config.Bars[0]], name = 'dev'),
-	Workspace(windawesome.monitors[0], TileLayout(masterAreaAxis = TileLayout.LayoutAxis.TopToBottom, masterAreaWindowsCount = 2, masterAreaFactor = 0.5), [config.Bars[0]], name = 'chat'),
-	Workspace(windawesome.monitors[0], FullScreenLayout(), [config.Bars[0]], name = 'mail'),
+	Workspace(windawesome.monitors[0], TileLayout(), [config.Bars[0]], name = '1:main'),
+	Workspace(windawesome.monitors[0], TileLayout(), [config.Bars[0]], name = '2:web'),
+	Workspace(windawesome.monitors[0], TileLayout(), [config.Bars[0]], name = '3:dev'),
+	Workspace(windawesome.monitors[0], TileLayout(masterAreaAxis = TileLayout.LayoutAxis.TopToBottom, masterAreaWindowsCount = 2, masterAreaFactor = 0.5), [config.Bars[0]], name = '4:chat'),
+	Workspace(windawesome.monitors[0], TileLayout(), [config.Bars[0]], name = '5:mail'),
 ])
 
 config.StartingWorkspaces = [config.Workspaces[0]]
